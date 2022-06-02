@@ -1,0 +1,606 @@
+float suma(float a, float b, bool op);
+float resta(float a, float b, bool op);
+float multiplicacion(float a, float b, bool op);
+float division(float a, float b, bool op);
+float residuo(float a, float b, bool op);
+float residuo2(float a, float b, bool op);
+
+
+
+
+namespace CppCLRWinformsProjekt {
+
+	using namespace System;
+	using namespace System::ComponentModel;
+	using namespace System::Collections;
+	using namespace System::Windows::Forms;
+	using namespace System::Data;
+	using namespace System::Drawing;
+
+	/// <summary>
+	/// Zusammenfassung für Form1
+	/// </summary>
+	public ref class Form1 : public System::Windows::Forms::Form
+	{
+	public:
+		Form1(void)
+		{
+			InitializeComponent();
+			//
+			//TODO: Konstruktorcode hier hinzufügen.
+			//
+		}
+
+	protected:
+		/// <summary>
+		/// Verwendete Ressourcen bereinigen.
+		/// </summary>
+		~Form1()
+		{
+			if (components)
+			{
+				delete components;
+			}
+		}
+
+		float a, b, resultado,p1,p2,p3;
+		int operacion;
+		bool punto = false;
+
+	private: System::Windows::Forms::Button^ boton1;
+	private: System::Windows::Forms::Button^ boton8;
+	protected:
+	private: System::Windows::Forms::Button^ boton6;
+	private: System::Windows::Forms::Button^ boton5;
+	private: System::Windows::Forms::Button^ boton7;
+	private: System::Windows::Forms::Button^ boton4;
+	private: System::Windows::Forms::Button^ boton3;
+	private: System::Windows::Forms::Button^ boton2;
+	private: System::Windows::Forms::Button^ boton9;
+	private: System::Windows::Forms::Button^ botoncero;
+	private: System::Windows::Forms::Button^ botonigual;
+	private: System::Windows::Forms::Button^ botonpunto;
+	private: System::Windows::Forms::Button^ button13;
+	private: System::Windows::Forms::Button^ botonresta;
+	private: System::Windows::Forms::Button^ botonmult;
+	private: System::Windows::Forms::Button^ botondiv;
+	private: System::Windows::Forms::Button^ botonborrar;
+	private: System::Windows::Forms::TextBox^ textBox1;
+	private: System::Windows::Forms::Button^ botonsuma;
+
+
+
+	protected:
+
+	private:
+		/// <summary>
+		/// Erforderliche Designervariable.
+		/// </summary>
+		System::ComponentModel::Container^ components;
+
+#pragma region Windows Form Designer generated code
+		/// <summary>
+		/// Erforderliche Methode für die Designerunterstützung.
+		/// Der Inhalt der Methode darf nicht mit dem Code-Editor geändert werden.
+		/// </summary>
+		void InitializeComponent(void)
+		{
+			this->boton1 = (gcnew System::Windows::Forms::Button());
+			this->boton8 = (gcnew System::Windows::Forms::Button());
+			this->boton6 = (gcnew System::Windows::Forms::Button());
+			this->boton5 = (gcnew System::Windows::Forms::Button());
+			this->boton7 = (gcnew System::Windows::Forms::Button());
+			this->boton4 = (gcnew System::Windows::Forms::Button());
+			this->boton3 = (gcnew System::Windows::Forms::Button());
+			this->boton2 = (gcnew System::Windows::Forms::Button());
+			this->boton9 = (gcnew System::Windows::Forms::Button());
+			this->botoncero = (gcnew System::Windows::Forms::Button());
+			this->botonigual = (gcnew System::Windows::Forms::Button());
+			this->botonpunto = (gcnew System::Windows::Forms::Button());
+			this->button13 = (gcnew System::Windows::Forms::Button());
+			this->botonresta = (gcnew System::Windows::Forms::Button());
+			this->botonmult = (gcnew System::Windows::Forms::Button());
+			this->botondiv = (gcnew System::Windows::Forms::Button());
+			this->botonborrar = (gcnew System::Windows::Forms::Button());
+			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+			this->botonsuma = (gcnew System::Windows::Forms::Button());
+			this->SuspendLayout();
+			// 
+			// boton1
+			// 
+			this->boton1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->boton1->Location = System::Drawing::Point(143, 149);
+			this->boton1->Name = L"boton1";
+			this->boton1->Size = System::Drawing::Size(36, 36);
+			this->boton1->TabIndex = 0;
+			this->boton1->Text = L"1";
+			this->boton1->UseVisualStyleBackColor = true;
+			this->boton1->Click += gcnew System::EventHandler(this, &Form1::boton1_Click);
+			// 
+			// boton8
+			// 
+			this->boton8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->boton8->Location = System::Drawing::Point(188, 230);
+			this->boton8->Name = L"boton8";
+			this->boton8->Size = System::Drawing::Size(36, 36);
+			this->boton8->TabIndex = 1;
+			this->boton8->Text = L"8";
+			this->boton8->UseVisualStyleBackColor = true;
+			this->boton8->Click += gcnew System::EventHandler(this, &Form1::boton8_Click);
+			// 
+			// boton6
+			// 
+			this->boton6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->boton6->Location = System::Drawing::Point(234, 188);
+			this->boton6->Name = L"boton6";
+			this->boton6->Size = System::Drawing::Size(36, 36);
+			this->boton6->TabIndex = 2;
+			this->boton6->Text = L"6";
+			this->boton6->UseVisualStyleBackColor = true;
+			this->boton6->Click += gcnew System::EventHandler(this, &Form1::boton6_Click);
+			// 
+			// boton5
+			// 
+			this->boton5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->boton5->Location = System::Drawing::Point(189, 188);
+			this->boton5->Name = L"boton5";
+			this->boton5->Size = System::Drawing::Size(36, 36);
+			this->boton5->TabIndex = 3;
+			this->boton5->Text = L"5";
+			this->boton5->UseVisualStyleBackColor = true;
+			this->boton5->Click += gcnew System::EventHandler(this, &Form1::boton5_Click);
+			// 
+			// boton7
+			// 
+			this->boton7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->boton7->Location = System::Drawing::Point(143, 230);
+			this->boton7->Name = L"boton7";
+			this->boton7->Size = System::Drawing::Size(36, 36);
+			this->boton7->TabIndex = 4;
+			this->boton7->Text = L"7";
+			this->boton7->UseVisualStyleBackColor = true;
+			this->boton7->Click += gcnew System::EventHandler(this, &Form1::boton7_Click);
+			// 
+			// boton4
+			// 
+			this->boton4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->boton4->Location = System::Drawing::Point(143, 188);
+			this->boton4->Name = L"boton4";
+			this->boton4->Size = System::Drawing::Size(36, 36);
+			this->boton4->TabIndex = 5;
+			this->boton4->Text = L"4";
+			this->boton4->UseVisualStyleBackColor = true;
+			this->boton4->Click += gcnew System::EventHandler(this, &Form1::boton4_Click);
+			// 
+			// boton3
+			// 
+			this->boton3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->boton3->Location = System::Drawing::Point(235, 149);
+			this->boton3->Name = L"boton3";
+			this->boton3->Size = System::Drawing::Size(36, 36);
+			this->boton3->TabIndex = 6;
+			this->boton3->Text = L"3";
+			this->boton3->UseVisualStyleBackColor = true;
+			this->boton3->Click += gcnew System::EventHandler(this, &Form1::boton3_Click);
+			// 
+			// boton2
+			// 
+			this->boton2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->boton2->Location = System::Drawing::Point(189, 149);
+			this->boton2->Name = L"boton2";
+			this->boton2->Size = System::Drawing::Size(36, 36);
+			this->boton2->TabIndex = 7;
+			this->boton2->Text = L"2";
+			this->boton2->UseVisualStyleBackColor = true;
+			this->boton2->Click += gcnew System::EventHandler(this, &Form1::boton2_Click);
+			// 
+			// boton9
+			// 
+			this->boton9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->boton9->Location = System::Drawing::Point(234, 230);
+			this->boton9->Name = L"boton9";
+			this->boton9->Size = System::Drawing::Size(36, 36);
+			this->boton9->TabIndex = 8;
+			this->boton9->Text = L"9";
+			this->boton9->UseVisualStyleBackColor = true;
+			this->boton9->Click += gcnew System::EventHandler(this, &Form1::boton9_Click);
+			// 
+			// botoncero
+			// 
+			this->botoncero->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->botoncero->Location = System::Drawing::Point(143, 274);
+			this->botoncero->Name = L"botoncero";
+			this->botoncero->Size = System::Drawing::Size(36, 36);
+			this->botoncero->TabIndex = 9;
+			this->botoncero->Text = L"0";
+			this->botoncero->UseVisualStyleBackColor = true;
+			this->botoncero->Click += gcnew System::EventHandler(this, &Form1::botoncero_Click);
+			// 
+			// botonigual
+			// 
+			this->botonigual->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->botonigual->Location = System::Drawing::Point(234, 274);
+			this->botonigual->Name = L"botonigual";
+			this->botonigual->Size = System::Drawing::Size(36, 36);
+			this->botonigual->TabIndex = 10;
+			this->botonigual->Text = L"=";
+			this->botonigual->UseVisualStyleBackColor = true;
+			this->botonigual->Click += gcnew System::EventHandler(this, &Form1::botonigual_Click);
+			// 
+			// botonpunto
+			// 
+			this->botonpunto->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->botonpunto->Location = System::Drawing::Point(188, 274);
+			this->botonpunto->Name = L"botonpunto";
+			this->botonpunto->Size = System::Drawing::Size(36, 36);
+			this->botonpunto->TabIndex = 11;
+			this->botonpunto->Text = L".";
+			this->botonpunto->UseVisualStyleBackColor = true;
+			this->botonpunto->Click += gcnew System::EventHandler(this, &Form1::botonpunto_Click);
+			// 
+			// button13
+			// 
+			this->button13->AccessibleDescription = L"botonsuma";
+			this->button13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button13->Location = System::Drawing::Point(223, 111);
+			this->button13->Name = L"button13";
+			this->button13->Size = System::Drawing::Size(40, 38);
+			this->button13->TabIndex = 12;
+			this->button13->Text = L"+";
+			this->button13->UseVisualStyleBackColor = true;
+			// 
+			// botonresta
+			// 
+			this->botonresta->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->botonresta->Location = System::Drawing::Point(278, 188);
+			this->botonresta->Name = L"botonresta";
+			this->botonresta->Size = System::Drawing::Size(36, 36);
+			this->botonresta->TabIndex = 13;
+			this->botonresta->Text = L"-";
+			this->botonresta->UseVisualStyleBackColor = true;
+			this->botonresta->Click += gcnew System::EventHandler(this, &Form1::botonresta_Click);
+			// 
+			// botonmult
+			// 
+			this->botonmult->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->botonmult->Location = System::Drawing::Point(278, 230);
+			this->botonmult->Name = L"botonmult";
+			this->botonmult->Size = System::Drawing::Size(36, 36);
+			this->botonmult->TabIndex = 14;
+			this->botonmult->Text = L"x";
+			this->botonmult->UseVisualStyleBackColor = true;
+			this->botonmult->Click += gcnew System::EventHandler(this, &Form1::botonmult_Click);
+			// 
+			// botondiv
+			// 
+			this->botondiv->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->botondiv->Location = System::Drawing::Point(278, 274);
+			this->botondiv->Name = L"botondiv";
+			this->botondiv->Size = System::Drawing::Size(36, 36);
+			this->botondiv->TabIndex = 15;
+			this->botondiv->Text = L"/";
+			this->botondiv->UseVisualStyleBackColor = true;
+			this->botondiv->Click += gcnew System::EventHandler(this, &Form1::botondiv_Click);
+			// 
+			// botonborrar
+			// 
+			this->botonborrar->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->botonborrar->Location = System::Drawing::Point(277, 105);
+			this->botonborrar->Name = L"botonborrar";
+			this->botonborrar->Size = System::Drawing::Size(36, 36);
+			this->botonborrar->TabIndex = 16;
+			this->botonborrar->Text = L"CE";
+			this->botonborrar->UseVisualStyleBackColor = true;
+			this->botonborrar->Click += gcnew System::EventHandler(this, &Form1::botonborrar_Click);
+			// 
+			// textBox1
+			// 
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox1->Location = System::Drawing::Point(146, 70);
+			this->textBox1->Multiline = true;
+			this->textBox1->Name = L"textBox1";
+			this->textBox1->Size = System::Drawing::Size(167, 27);
+			this->textBox1->TabIndex = 17;
+			this->textBox1->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
+			// 
+			// botonsuma
+			// 
+			this->botonsuma->Location = System::Drawing::Point(278, 149);
+			this->botonsuma->Name = L"botonsuma";
+			this->botonsuma->Size = System::Drawing::Size(36, 36);
+			this->botonsuma->TabIndex = 18;
+			this->botonsuma->Text = L"+";
+			this->botonsuma->UseVisualStyleBackColor = true;
+			this->botonsuma->Click += gcnew System::EventHandler(this, &Form1::botonsuma_Click);
+			// 
+			// Form1
+			// 
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::DarkSlateBlue;
+			this->ClientSize = System::Drawing::Size(449, 367);
+			this->Controls->Add(this->botonsuma);
+			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->botonborrar);
+			this->Controls->Add(this->botondiv);
+			this->Controls->Add(this->botonmult);
+			this->Controls->Add(this->botonresta);
+			this->Controls->Add(this->botonpunto);
+			this->Controls->Add(this->botonigual);
+			this->Controls->Add(this->botoncero);
+			this->Controls->Add(this->boton9);
+			this->Controls->Add(this->boton2);
+			this->Controls->Add(this->boton3);
+			this->Controls->Add(this->boton4);
+			this->Controls->Add(this->boton7);
+			this->Controls->Add(this->boton5);
+			this->Controls->Add(this->boton6);
+			this->Controls->Add(this->boton8);
+			this->Controls->Add(this->boton1);
+			this->Name = L"Form1";
+			this->Text = L"Form1";
+			this->ResumeLayout(false);
+			this->PerformLayout();
+
+		}
+#pragma endregion
+
+
+	private: System::Void boton1_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Text = textBox1->Text + "1";
+	}
+	private: System::Void boton2_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Text = textBox1->Text + "2";
+	}
+	private: System::Void boton3_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Text = textBox1->Text + "3";
+	}
+	private: System::Void boton4_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Text = textBox1->Text + "4";
+	}
+	private: System::Void boton5_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Text = textBox1->Text + "5";
+	}
+	private: System::Void boton6_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Text = textBox1->Text + "6";
+	}
+	private: System::Void boton7_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Text = textBox1->Text + "7";
+	}
+	private: System::Void boton8_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Text = textBox1->Text + "8";
+	}
+	private: System::Void boton9_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Text = textBox1->Text + "9";
+	}
+	private: System::Void botoncero_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Text = textBox1->Text + "0";
+	}
+	private: System::Void botonpunto_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (punto == false) {
+			textBox1->Text = textBox1->Text + ".";
+		}
+		else {
+			MessageBox::Show("Solo puede escribir un punto");
+		}
+		punto = true;
+
+	}
+	private: System::Void botonsuma_Click(System::Object^ sender, System::EventArgs^ e) {
+		punto = false;
+		operacion = 1;
+		a = Convert::ToDouble(textBox1->Text);
+		textBox1->Clear();
+	}
+	private: System::Void botonresta_Click(System::Object^ sender, System::EventArgs^ e) {
+		punto = false;
+		operacion = 2;
+		a = Convert::ToDouble(textBox1->Text);
+		textBox1->Clear();
+	}
+	private: System::Void botonmult_Click(System::Object^ sender, System::EventArgs^ e) {
+		punto = false;
+		operacion = 3;
+		a = Convert::ToDouble(textBox1->Text);
+		textBox1->Clear();
+	}
+	private: System::Void botondiv_Click(System::Object^ sender, System::EventArgs^ e) {
+		punto = false;
+		operacion = 4;
+		a = Convert::ToDouble(textBox1->Text);
+		textBox1->Clear();
+	}
+	private: System::Void botonborrar_Click(System::Object^ sender, System::EventArgs^ e) {
+		textBox1->Clear();
+		punto = false;
+		a = 0;
+		b = 0;
+	}
+	private: System::Void botonigual_Click(System::Object^ sender, System::EventArgs^ e) {
+		resultado = 0;
+		b = Convert::ToDouble(textBox1->Text);
+
+
+		if (operacion == 1) {
+			textBox1->Clear();
+			resultado = suma(a, b, punto);
+			textBox1->Text = resultado.ToString();
+			a = resultado;
+			punto = false;
+		}
+		else if (operacion == 2) {
+			textBox1->Clear();
+			resultado = resta(a, b, punto);
+			textBox1->Text = resultado.ToString();
+			a = resultado;
+			punto = false;
+		}
+		else if (operacion == 3) {
+			textBox1->Clear();
+			resultado = multiplicacion(a, b, punto);
+			textBox1->Text = resultado.ToString();
+			a = resultado;
+			punto = false;
+		}
+		else if (operacion == 4) {
+			if (a == 0 && b == 0) {
+				textBox1->Text = "No existe";
+			}
+			else if (a== 0 && b != 0) {
+				textBox1->Clear();
+				resultado = 0;
+				textBox1->Text = resultado.ToString();
+				a = resultado;
+				punto = false;
+			}
+			else{
+					textBox1->Clear();
+					p1= division(a, b, punto);
+					p2 = residuo(a, b, punto);
+					p3 = residuo2(a, b, punto);
+					textBox1->Text = p1+"."+p2+p3.ToString();
+					float valorf = Convert::ToDouble(textBox1->Text);
+					a = valorf;
+					punto = false;
+				}
+			}
+		}
+	};
+}
+
+float suma(float a, float b, bool op) {
+	int valor;
+	int primernumero = (int)(a);
+	int segundonumero = (int)(b);
+
+	if (op == true) {
+	  
+		int valor;
+		int primernumero = (int)(a*1000000);
+		int segundonumero = (int)(b*1000000);
+
+		__asm {
+			mov eax, primernumero
+			add eax, segundonumero
+			mov valor, eax
+		}
+		return (float)valor / 1000000;
+	}
+	else 
+	__asm{
+	  mov eax, primernumero
+	  add eax, segundonumero
+	  mov valor, eax
+	}
+	return (float)valor;
+}
+
+float resta(float a, float b, bool op) {
+	int valor;
+	int primernumero = (int)(a);
+	int segundonumero = (int)(b);
+
+	if (op == true) {
+
+		int valor;
+		int primernumero = (int)(a * 1000000);
+		int segundonumero = (int)(b * 1000000);
+
+		__asm {
+			mov eax, primernumero
+			sub eax, segundonumero
+			mov valor, eax
+		}
+		return (float)valor / 1000000;
+	}
+	else 
+	__asm{
+	  mov eax, primernumero
+	  sub eax, segundonumero
+	  mov valor, eax
+	}
+	return (float)valor;
+}
+
+float multiplicacion(float a, float b, bool op) {
+	
+		int valor;
+		int n1 = (int)(a * 100);
+		int n2 = (int)(b * 100);
+
+		__asm {
+			mov eax, n1
+			mul n2
+			mov valor, eax
+		}
+		return (float)valor / 10000;
+
+}
+
+float division(float a, float b, bool op){
+
+		int valor;
+		int n1 = (int)(a);
+		int n2 = (int)(b);
+
+		__asm {
+			mov eax, n1
+			div n2
+			mov valor, eax
+		}
+		return (float)valor;
+}
+
+float residuo(float a, float b, bool op){
+		int valor2;
+		int aux = 10;
+		int n1 = (int)(a);
+		int n2 = (int)(b);
+
+		__asm {
+			mov eax, n1
+			div n2
+			mov eax, edx
+			mul aux
+			div n2
+			mov valor2, eax
+		}
+		return valor2;
+}
+float residuo2(float a, float b, bool op) {
+	int valor3;
+	int aux = 10;
+	int n1 = (int)(a);
+	int n2 = (int)(b);
+
+	__asm {
+		mov eax, n1
+		div n2
+		mov eax, edx
+		mul aux
+		div n2
+		mov eax, edx
+		mul aux
+		div n2
+		mov valor3, eax
+	}
+	return valor3;
+}
